@@ -29,8 +29,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 //Admin
-Route::namespace('Admin')->prefix('admin')->name('admin. ')->group(function(){
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
     Route::namespace('Auth')->group(function(){
             //login route
+            Route::get('login', 'AuthenticatedSessionController@create')->name('login');
     });
 });
